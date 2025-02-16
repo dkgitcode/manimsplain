@@ -76,7 +76,8 @@ export default function SearchInput({ onSearch }: { onSearch: () => void }) {
     }, 50)
 
     return () => clearInterval(interval)
-  }, [placeholderIndex, isTyping, placeholders])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [placeholderIndex, isTyping,])
 
   return (
     <div className="w-full max-w-3xl mx-auto">
