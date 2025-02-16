@@ -76,7 +76,7 @@ export default function SearchInput({ onSearch }: { onSearch: () => void }) {
     }, 50)
 
     return () => clearInterval(interval)
-  }, [placeholderIndex, isTyping])
+  }, [placeholderIndex, isTyping, placeholders])
 
   return (
     <div className="w-full max-w-3xl mx-auto">

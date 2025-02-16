@@ -110,7 +110,7 @@ export default function LinearRegressionLesson() {
           </p>
 
           <p className="text-muted-foreground">
-            The gradient descent algorithm works by iteratively adjusting our parameters to minimize the loss function. Let's visualize this process:
+            The gradient descent algorithm works by iteratively adjusting our parameters to minimize the loss function. Let&apos;s visualize this process:
           </p>
 
           <VideoComponent 
@@ -124,7 +124,7 @@ export default function LinearRegressionLesson() {
           </p>
 
           <p className="text-muted-foreground">
-            Once we've found the optimal parameters through gradient descent, we can see how our final line fits the data:
+            Once we&apos;ve found the optimal parameters through gradient descent, we can see how our final line fits the data:
           </p>
 
           <VideoComponent 
@@ -134,7 +134,7 @@ export default function LinearRegressionLesson() {
           />
 
           <p className="text-muted-foreground">
-            The final line represents our optimized linear regression model, where we've found the values of m and b that minimize our mean squared error. This line gives us the best linear approximation of our data points.
+            The final line represents our optimized linear regression model, where we&apos;ve found the values of m and b that minimize our mean squared error. This line gives us the best linear approximation of our data points.
           </p>
         </div>
 
@@ -145,7 +145,7 @@ export default function LinearRegressionLesson() {
         >
           <h2 className="text-2xl font-semibold text-primary">6. Practical Example</h2>
           <p className="text-muted-foreground">
-            Let's predict house prices based on square footage using linear regression.
+            Let&apos;s predict house prices based on square footage using linear regression.
           </p>
           <VideoComponent 
             title="House Price Prediction" 
