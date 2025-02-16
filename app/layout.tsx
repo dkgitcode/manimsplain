@@ -7,8 +7,8 @@ import { Toaster } from "@/components/ui/toaster"
 const ptSerif = PT_Serif({ subsets: ["latin"], weight: "400" })
 
 export const metadata: Metadata = {
-  title: "manimsplain",
-  description: "A chatbot using the Manim library.",
+  title: "Manimsplain",
+  description: "A chatbot that uses the Manim library to explain math concepts.",
 }
 
 
