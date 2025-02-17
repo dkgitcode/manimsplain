@@ -50,6 +50,7 @@ export default function Home() {
             <SampleInput onSelect={(question) => {
               // You can handle the selected question here
               // trigger the search
+              console.log(question)
               handleSearch()
             }} />
           </div>

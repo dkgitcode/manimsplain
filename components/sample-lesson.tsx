@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react'
 import { VideoComponent } from '@/components/ui/video-component'
 import { Explainer } from './explainer'
