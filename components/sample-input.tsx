@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 
 const sampleQuestions = [
-  "Explain Newton's laws of motion mathematically.",
+  "Explain linear regression in depth.",
   "Show me how to visualize matrix multiplication.",
   "What's the big deal about the Fibonacci sequence?",
   "How does a neural network 'learn'?",

@@ -49,7 +49,8 @@ export default function Home() {
             <SearchInput onSearch={handleSearch} />
             <SampleInput onSelect={(question) => {
               // You can handle the selected question here
-              console.log('Selected:', question)
+              // trigger the search
+              handleSearch()
             }} />
           </div>
         )}
@@ -88,7 +89,7 @@ export default function Home() {
 
       {/* Fixed Follow-up Input */}
       {showLesson && (
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/80 backdrop-blur-sm border-border">
+        <div className="fixed bottom-0 left-0 right-0 p-4 ">
           <div className="w-full max-w-3xl mx-auto animate-slide-up-in opacity-0" style={{ animationDelay: "1.2s" }}>
             <FollowUpInput onSubmit={(value) => console.log('Follow-up:', value)} />
           </div>
