@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
+import { useRouter } from "next/navigation"
 
 interface TopNavBarProps {
   onReset: () => void
@@ -7,12 +8,18 @@ interface TopNavBarProps {
 
 export default function TopNavBar({ onReset }: TopNavBarProps) {
   const { toast } = useToast()
+  const router = useRouter()
 
   const showDemoToast = () => {
     toast({
       title: "Oops!",
       description: "This is just a demo application!",
     })
+  }
+
+  // Navigate to pricing page
+  const goToPricing = () => {
+    router.push("/pricing")
   }
 
   return (
@@ -23,13 +30,13 @@ export default function TopNavBar({ onReset }: TopNavBarProps) {
             onClick={onReset}
             className="text-2xl text-primary hover:opacity-80 transition-opacity"
           >
-            <strong>manim</strong> <span className="text-muted-foreground ml-[-5px]">splain</span>
+            <strong>nba</strong> <span className="text-muted-foreground ml-[-5px]">genie</span>
           </button>
           <div className="flex items-center space-x-4">
             <Button 
               variant="ghost" 
               className="text-primary hover:bg-accent/50 rounded-md"
-              onClick={showDemoToast}
+              onClick={goToPricing}
             >
               Pricing
             </Button>

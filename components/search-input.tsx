@@ -1,32 +1,27 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import { Sparkles } from 'lucide-react'
+import { Sparkles, BarChart2, MessageSquare } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useToast } from "@/hooks/use-toast"
 
 
-export default function SearchInput({ onSearch }: { onSearch: () => void }) {
+export default function SearchInput({ onSearch }: { onSearch: (prompt: string, mode: 'answer' | 'visualizer') => void }) {
   const [value, setValue] = useState('')
   const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const [displayedPlaceholder, setDisplayedPlaceholder] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const [mode, setMode] = useState<'answer' | 'visualizer'>('answer')
 
   const { toast } = useToast()
 
   const placeholders = [
-    "Explain Linear Regression to a 5 year old.",
-    "Explain the chain rule in calculus.",
-    "What's t-sne and how does it work?",
-    "What's a neural network?",
-    "What's a convolutional neural network?",
-    "What's a recurrent neural network?",
-    "What's a transformer?",
-    "What's a language model under the hood?",
-    "What's a generative adversarial network?",
-    "What's a random forest?",
-    "What's a support vector machine?",
-    "What does QKV mean in transformers?",
+    "Who led the league in scoring last season?",
+    "What is the average height of the starting lineup for the Bulls this season?",
+    "Have there ever been a 30/20/20 triple-double in NBA history?",
+    "What is the most points scored in a game this season?",
+    "Who is the franchise leader of the Lakers in points?",
+    "When did the Bucks last win a championship?",
   ]
 
   const handleSearch = () => {
@@ -37,10 +32,13 @@ export default function SearchInput({ onSearch }: { onSearch: () => void }) {
       })
       return
     }
-    onSearch()
-    console.log('Searching:', value)
+    onSearch(value, mode)
+    console.log(`Searching in ${mode} mode:`, value)
   }
 
+  const toggleMode = (newMode: 'answer' | 'visualizer') => {
+    setMode(newMode)
+  }
 
   useEffect(() => {
     if (isTyping) {
@@ -81,6 +79,33 @@ export default function SearchInput({ onSearch }: { onSearch: () => void }) {
 
   return (
     <div className="w-full max-w-3xl mx-auto">
+      {/* MODE TOGGLE BADGES - BOTH VISIBLE AT ONCE 🔄 */}
+      <div className="flex justify-end mb-2 gap-2">
+        <button
+          onClick={() => toggleMode('answer')}
+          className={`px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1.5 transition-all duration-200 ${
+            mode === 'answer' 
+              ? 'bg-primary/10 text-primary border border-primary/30' 
+              : 'bg-muted/30 text-muted-foreground hover:bg-primary/5 hover:text-primary/70'
+          }`}
+        >
+          <MessageSquare className="h-3 w-3" />
+          <span>Answer Mode</span>
+        </button>
+        
+        <button
+          onClick={() => toggleMode('visualizer')}
+          className={`px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1.5 transition-all duration-200 ${
+            mode === 'visualizer' 
+              ? 'bg-indigo-500/10 text-indigo-500 border border-indigo-500/30' 
+              : 'bg-muted/30 text-muted-foreground hover:bg-indigo-500/5 hover:text-indigo-500/70'
+          }`}
+        >
+          <BarChart2 className="h-3 w-3" />
+          <span>Visualizer</span>
+        </button>
+      </div>
+      
       <div className="relative">
         <Textarea
           placeholder={displayedPlaceholder}
@@ -102,7 +127,11 @@ export default function SearchInput({ onSearch }: { onSearch: () => void }) {
         <Button
           size="icon"
           onClick={handleSearch}
-          className="absolute right-3 bottom-3 rounded-full bg-transparent hover:bg-accent/50 text-primary border border-primary/30 hover:border-primary transition-colors"
+          className={`absolute right-3 bottom-3 rounded-full bg-transparent hover:bg-accent/50 border transition-colors ${
+            mode === 'answer'
+              ? 'text-primary border-primary/30 hover:border-primary'
+              : 'text-indigo-500 border-indigo-500/30 hover:border-indigo-500'
+          }`}
         >
           <Sparkles className="h-3 w-3" />
           <span className="sr-only">Search</span>
