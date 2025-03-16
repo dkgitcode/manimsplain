@@ -25,8 +25,32 @@ npm install
 npm run dev
 ```
 
-
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Authentication Setup with Supabase
+
+This project uses Supabase for authentication. To set up authentication:
+
+1. Create a Supabase account at [https://supabase.com](https://supabase.com)
+2. Create a new project in Supabase
+3. Enable Email/Password authentication in Authentication > Providers
+4. Copy your Supabase URL and anon key from Project Settings > API
+5. Create a `.env.local` file in the root of your project with the following variables:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+6. Replace the placeholder values with your actual Supabase credentials
+7. Restart your development server
+
+### Authentication Features
+
+- 🔐 Email/password authentication
+- 👤 User profiles
+- 🔄 Persistent sessions
+- �� Protected routes
 
 ## Demo Features
 

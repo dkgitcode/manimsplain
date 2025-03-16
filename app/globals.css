@@ -63,6 +63,10 @@
     --border: 240 3.7% 20%;
     --input: 240 3.7% 20%;
     --ring: 240 4.9% 83.9%;
+    
+    /* CUSTOM COLORS FOR LAYOUT 🎨 */
+    --content-bg: 240 10% 10%;
+    --outer-bg: 240 10% 12%;
   }
 }
 
@@ -75,10 +79,40 @@
   }
 }
 
+/* SIDEBAR STYLES 🧭 */
+@layer components {
+  .sidebar-nav-item {
+    @apply flex items-center gap-3 w-full p-3 rounded-sm text-muted-foreground hover:text-primary hover:bg-accent/50 transition-colors;
+  }
+  
+  .sidebar-nav-item-active {
+    @apply flex items-center gap-3 w-full p-3 rounded-sm text-primary bg-accent/30 hover:bg-accent/50 transition-colors;
+  }
+  
+  .mobile-nav-item {
+    @apply flex flex-col items-center justify-center w-full h-full text-muted-foreground hover:text-primary transition-colors;
+  }
+  
+  .mobile-nav-item-active {
+    @apply flex flex-col items-center justify-center w-full h-full text-primary transition-colors;
+  }
+  
+  /* CONTENT AREA STYLES 📄 */
+  .content-area {
+    @apply bg-[hsl(var(--content-bg))] rounded-lg p-6 shadow-sm;
+  }
+  
+  .outer-area {
+    @apply bg-[hsl(var(--outer-bg))];
+  }
+}
+
 @layer utilities {
   .search-bar-shadow {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
+  
+  /* PAGE TRIM EFFECT MOVED OUTSIDE LAYER ✨ */
 }
 
 @keyframes fadeIn {
@@ -120,6 +154,18 @@
   }
 }
 
+/* SIDEBAR ANIMATION KEYFRAMES 🔄 */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 @layer utilities {
   .animate-slide-up-out {
     animation: slideUpAndFadeOut 0.4s ease-out forwards;
@@ -127,4 +173,40 @@
   .animate-slide-up-in {
     animation: slideUpAndFadeIn 0.5s ease-out forwards;
   }
+  /* ADD SIDEBAR ANIMATION UTILITY CLASS ✨ */
+  .animate-slide-in-left {
+    animation: slideInLeft 0.3s ease-out forwards;
+  }
+}
+
+/* CUSTOM SCROLLBAR STYLING FOR CONTAINERIZED CONTENT 📜 */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted));
+  border-radius: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground));
+}
+
+/* FIREFOX SCROLLBAR STYLING */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted)) transparent;
+}
+
+/* CONTENT CONTAINER STYLING WITH CLEAN BORDERS ✨ */
+.content-container {
+  /* border: 10px solid hsl(var(--background)); */
+  border-radius: 8px;
+  background-color: hsl(var(--content-bg));
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
 }

@@ -120,7 +120,7 @@ export default function DynamicLesson({ data, prompt, answer }: DynamicLessonPro
   if (!answer || answer.trim() === '') {
     console.warn("⚠️ NO ANSWER PROVIDED TO DYNAMIC LESSON");
     return (
-      <div className="w-full max-w-3xl mx-auto py-4 animate-fade-in">
+      <div className="w-full max-w-3xl mx-auto py-2 animate-fade-in">
         <div className="mb-8 p-4 bg-accent/10 rounded-lg">
           <h3 className="text-xl font-medium mb-2">Processing your request...</h3>
           <p>We're preparing your answer. If this message persists, please try your query again.</p>
@@ -191,7 +191,7 @@ export default function DynamicLesson({ data, prompt, answer }: DynamicLessonPro
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto py-4 bg-background/80 rounded-lg p-6 shadow-sm">
+    <div className="w-full max-w-3xl mx-auto py-2 rounded-lg ">
       <div ref={markdownRef} className="markdown-content">
         <ReactMarkdown 
           remarkPlugins={[remarkGfm]} 

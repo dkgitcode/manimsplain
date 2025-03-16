@@ -1,5 +1,5 @@
 import React from 'react';
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/utils";
 
 // PLAYER STATS INTERFACE FOR BOX SCORE DISPLAY 📊
 export interface PlayerStat {

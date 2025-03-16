@@ -6,7 +6,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { cn } from "@/lib/utils"
+import { cn } from "@/utils/utils"
 
 interface ExplainerProps {
   term: string
